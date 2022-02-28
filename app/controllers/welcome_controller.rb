@@ -1,7 +1,6 @@
 class WelcomeController < ApplicationController
-
+	before_action :authenticate_user!
 def index
-	render plain: "This is our home page"
 end
 
 end
