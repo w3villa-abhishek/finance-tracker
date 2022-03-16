@@ -1,0 +1,26 @@
+<div id="no-bg">
+<h1>My portfolio Page</h1><p>(Free version- Add upto 10 stocks)</p>
+<br><br>
+<div class="search-area">
+    <h3>Search Stocks</h3>
+    <%= form_tag search_stocks_path, remote: true, method: :get do %>
+    <div class="form-group row">
+        <div class="col-9 dlt-margin">
+            <%= text_field_tag :ticker, params[:ticker], placeholder: "Enter the stock symbol", class: "form-control" %>
+        </div>
+        <div class="col-3">
+            <%= button_tag type: 'submit' ,class: "btn-lg btn-success" do %>
+                <i class="fa fa-search"></i>
+            <% end %>
+        </div>
+    </div>
+    <% end %>
+</div>
+<div id="loading"></div>
+<br>
+
+<div id="results">
+</div>
+<%=render 'portfolio_list'%>
+</div>
+

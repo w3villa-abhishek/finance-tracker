@@ -1,3 +1,34 @@
-this is the home page
+<div class="bg">
+<div class="container text-center">
+	<h1>Hi! This is a finance tracker application</h1>
+	<br><br>
+	<p><i>Now you can use this application for checking the stocks price along with many other feature like see your friend's favourite stocks, their tracking, etc.		</i></p>
 
-<%= link_to 'sign out', destroy_user_session_path, method: :delete%>
+	<br><br><br>
+	<hr>
+	<h3><u></ul>Our major features include:- </u></h3>
+	<br>
+	<ul class="features">
+		<li>Maintain your personal portfolio(upto 10 stocks for free)</li>
+		<li>Check out your friends favourite stock</li>
+		<li>Add or remove stocks based on your prefrence</li>
+		<li>Create unlimited free account</li>
+		<li>Check real-time stock price (β-mode)</li>
+	</ul>
+	<hr>
+	<br>
+	<%if !user_signed_in?%>
+  		<%=link_to "Login", user_session_path, class: 'btn btn-primary'%> | 
+  		<%=link_to "New User?", new_user_registration_path, class: 'btn btn-warning'%>
+  	<%else%>
+  		<%=link_to "My portfolio", my_portfolio_path, class: 'btn btn-success'%> | 
+  		<%=link_to "Log out", destroy_user_session_path, method: :delete, class: 'btn btn-danger'%>
+  	<%end%>
+
+
+ <br><br><br><br><br>
+ 
+</div>
+
+
+</div>

@@ -1,0 +1,6 @@
+<h1><%=@user.first_name%>'s Profile </h1>
+<%if @user.stocks.count==0%>
+	<p>This user is not tracking any stock yet...</p>
+<%end%>
+
+<%= render 'portfolio_list'%>

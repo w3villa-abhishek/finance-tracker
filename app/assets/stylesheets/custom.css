@@ -1,0 +1,65 @@
+
+h1,h3{
+  font-family: "Times New Roman", Times, serif;
+}
+
+body{
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url("bg.jpg");
+}
+
+table.table {
+    margin-top: 20px;
+}
+
+a.btn-sm.btn-danger.nav-link {
+    color: white;
+}
+
+.card.card-header.result {
+    background-color: darkseagreen;
+}
+
+#no-bg{
+    background-image: none;
+}
+
+
+.features{
+    padding: 25px;
+    border: 8px groove grey;
+    margin: auto;
+    width: 35%;
+}
+
+a.btn-sm.btn-danger.nav-link {
+    margin-right: 10px;
+}
+
+
+.card.card-header.result {
+    display: inline-block;
+}
+
+
+a.btn-sm.btn-warning, a.btn-sm.btn-success{
+text-decoration: none;
+}
+
+.pad{
+    margin-left: 22rem;
+}
+
+
+input#ticker,#friend{
+    padding: 14px;
+}
+
+.dlt-margin{
+    margin-right: -24px;
+}
+
+.btn-danger{
+    text-decoration: none;
+}

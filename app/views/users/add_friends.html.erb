@@ -1,0 +1,54 @@
+<div id="no-bg">
+<h1>Add a friend to track list</h1><p>(Free version- Track upto 5 friends)</p>
+<br><br>
+<div class="search-area">
+    <h3>Search people</h3>
+    <%= form_tag add_friends_path, method: :get do %>
+    <div class="form-group row" id="friend">
+        <div class="col-9 dlt-margin">
+            <%= text_field_tag :friend, params[:friend], placeholder: "Enter the email or name of the friend", class: "form-control" %>
+        </div>
+        <div class="col-3">
+            <%= button_tag type: 'submit', class: "btn-lg btn-success" do %>
+                <i class="fa fa-search"></i>
+            <% end %>
+        </div>
+    </div>
+    <% end %>
+<%if @matched_profiles.present?%>
+<div class="col-9">
+    <table class="table">
+      <thead class="thead">
+        <tr>
+          <th scope="col">S.no</th>
+          <th scope="col">Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Track Account</th>
+          <th scope="col">View Stocks</th>
+
+
+        </tr>
+      </thead>
+      <tbody>
+        <% @matched_profiles.each do |profile| %>
+        <tr> 
+          <th scope="row"><%=@count+=1%></th>
+          <td><b><%=profile.full_name%></b></td>
+          <td><%=profile.email%></td>
+          <%not_track = current_user.not_tracking?(profile.id, current_user)%>
+          <%count_track = current_user.friends.count%>
+          <%if count_track<=4 && not_track%>
+            <td><%=link_to 'Track account', tracked_profiles_path(user: profile), class: "btn btn-success"%></td>
+          <%elsif !not_track%>
+            <td><%=link_to 'Already tracking', '#', class: "btn btn-danger" %></td>
+          <%else%>
+            <td><%=link_to 'Limit reached', '#', class: "btn btn-danger"%></td>
+          <%end%>
+          <td><%=link_to 'view stocks',tracked_portfolio_path(user: profile) ,class: "btn btn-warning"%></td>
+        </tr>
+        <%end%>
+      </tbody>
+    </table>
+</div>
+<%end%>
+</div>

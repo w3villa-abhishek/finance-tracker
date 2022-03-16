@@ -1,0 +1,15 @@
+
+<%=render 'layouts/notice'%>    
+
+<%if @stock%>
+    <div class="card card-header result">
+        <strong>Symbol:</strong> <%=@stock.ticker%> 
+        <strong>Name:</strong> <%=@stock.name%>
+        <strong>Last Price:</strong> $<%=@stock.last_price%>
+        <%grab_id = Stock.find_by_ticker(@stock.ticker)%>
+        <%if UserStock.add_or_not(current_user, grab_id).blank? && !current_user.limit_reach?%>
+            <%=link_to 'Add to portfolio', user_stocks_path(user: current_user, ticker: @stock.ticker) ,method: :post, class: "btn btn-success" %>
+        <%end%> 
+    </div>
+<%end%>
+
