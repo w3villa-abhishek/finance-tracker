@@ -45,11 +45,10 @@ group :development do
   gem 'spring'
   # Use mysql as the database for Active Record
 gem 'mysql2', '~> 0.5'
+end
 
 gem 'devise'
 
-
-end
 
 group :production do
   gem 'pg'
